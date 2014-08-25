@@ -1,6 +1,6 @@
 InviteApp::Application.routes.draw do
-  get "pages/home"
-  get "pages/register"
+  root  'pages#home'
+  match '/register',   to: 'pages#register',   via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

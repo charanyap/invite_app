@@ -1,0 +1,10 @@
+<% provide(:title, 'home') %>
+
+<div class="center hero-unit">
+ 
+  <h2>Login </h2>
+  <%= @user.name %>, <%= @user.email %>
+  <h2><%= @user.name %></h2>
+  <%= link_to "Log out!", root_path, class: "btn btn-small btn-primary" %>
+</div>
+

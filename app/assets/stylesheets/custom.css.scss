@@ -50,3 +50,25 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+ 
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+}
+#error_explanation ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+
+.field_with_errors {
+ 
+}

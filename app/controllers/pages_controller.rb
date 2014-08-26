@@ -5,4 +5,8 @@ class PagesController < ApplicationController
 
   def register
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
 end

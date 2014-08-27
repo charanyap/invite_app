@@ -1,7 +1,10 @@
 InviteApp::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   root  'users#home'
   match '/register',   to: 'users#register',   via: 'get'
+  match '/signin',   to: 'sessions#create',   via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

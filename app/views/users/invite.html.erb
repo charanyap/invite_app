@@ -1,0 +1,27 @@
+<% provide(:title, 'invite friend') %>
+
+<div class="center hero-unit">
+ 
+  
+ <!-- Any link with a class="cs_import" will start the import process -->
+<a class="cs_import">Add from Address Book</a>
+<%= @error_msg %>
+<%= form_for invite_path , :method=> "POST" do %>
+<%= text_area_tag(:contact_list) %>
+<%= submit_tag 'send invitation' %>
+
+<!-- This textarea will be populated with the contacts returned by CloudSponge -->
+<% end %>
+<!-- Include these scripts at the bottom of your page to import address books with CloudSponge -->
+<script>
+var csPageOptions = {
+  domain_key:"<%= ENV['CLOUDSPONGE_KEY'] %>",
+  textarea_id:"contact_list"
+};
+</script>
+<script src="//api.cloudsponge.com/address_books.js"></script>
+
+ <br /> <%= link_to "Go to ur profile", current_user %>
+         
+</div>
+

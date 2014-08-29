@@ -1,4 +1,4 @@
-class Invitation < ActionMailer::Base
+class InvitationMailer < ActionMailer::Base
   default from: "charanya140207@gmail.com"
 
   def invitation_mail(email_id)

@@ -31,14 +31,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 20px;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 26px;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -47,14 +47,19 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 0.8em;
   line-height: 1.7em;
+  float:left;
 }
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
  
+label{float:left;width:150px;font-size: 1.1em;}
+
+input, textarea, select, .uneditable-input {
+float:left;
+  border: 1px solid #bbb;
+  width: 50%;
+  margin-bottom: 15px;
+font-size: 1.1em; 
 }
 
 input {
@@ -71,4 +76,11 @@ input {
 
 .field_with_errors {
  
+}
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
 }

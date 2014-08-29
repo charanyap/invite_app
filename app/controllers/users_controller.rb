@@ -8,6 +8,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    
+  end
+
+  def invite
+     @email_id = params["contact_list"]
+     if(@email_id = "")
+     @error_msg="Pls enter some emails"
+     else    
+     InvitationMailer.invitation_mail(@email_id).deliver
+    # .invitation_mail(@email_id).deliver
+     redirect_to current_user,notice: 'Mail sent successfully' 
+     end    
   end
 
   def create
@@ -31,6 +43,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
-
   
 end

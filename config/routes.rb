@@ -4,7 +4,9 @@ InviteApp::Application.routes.draw do
   root  'users#home'
   match '/register',   to: 'users#register',   via: 'get'
   match '/signin',   to: 'sessions#create',   via: 'get'
+  match '/show',   to: 'users#show',   :via => [:post , :get]
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/invite', to: 'users#invite',   :via => [:post , :get]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

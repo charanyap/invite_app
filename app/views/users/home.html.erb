@@ -1,7 +1,7 @@
 <% provide(:title, 'home') %>
 <div class="center hero-unit">
-  <h1>Welcome</h1>
-  <h2>Login </h2>
+  <h2>Welcome Login</h2>
+ 
   <div class="row">
   <div class="span6 offset3">
     <%= form_for(:session, url: sessions_path) do |f| %>
@@ -11,13 +11,15 @@
 
       <%= f.label :password %>
       <%= f.password_field :password %>
-
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <div class="clear"> </div>
+      
+      <%= f.submit "Sign in", class: "btn btn-small btn-primary" %> <p>New user?<%= link_to "Sign up now!", register_path%></p>
+       
     <% end %>
-
-
-  <p>New user?<%= link_to "Sign up now!", register_path%></p>
+   
   </div>
+   
+  
 </div>
 </div>
 

@@ -1,4 +1,4 @@
-<% provide(:title, 'home') %>
+<% provide(:title, 'show users') %>
 
 <div class="center hero-unit">
  
@@ -6,23 +6,8 @@
   <h2><%= @user.name %></h2>        
  
   <% if signed_in? %>
-  
-  <!-- Any link with a class="cs_import" will start the import process -->
-<a class="cs_import">Add from Address Book</a>
-
-<!-- This textarea will be populated with the contacts returned by CloudSponge -->
-<textarea id="contact_list" style="width:450px;height:82px"></textarea>
-
-<!-- Include these scripts at the bottom of your page to import address books with CloudSponge -->
-<script>
-var csPageOptions = {
-  domain_key:"<%= ENV['CLOUDSPONGE_KEY'] %>",
-  textarea_id:"contact_list"
-};
-</script>
-<script src="//api.cloudsponge.com/address_books.js"></script>    
-
-  <%= link_to "Sign out", signout_path, method: "delete" %>
+ <%= link_to "Send invitation", invite_path %> 
+ <%= link_to "Sign out", signout_path, method: "delete" %>
           <% end %>
 </div>
 

@@ -8,7 +8,7 @@ class FriendlistsController < ApplicationController
     
    @friendlist = current_user.friendlists.build(friendlist_params)
     if @friendlist.save
-      friendlist_id=friendlist.id
+      friendlist_id=@friendlist.id
      @email_id=params[:contact_list]
      @userid=params[:user_id]
      @friendid=params[:friendid]
@@ -18,7 +18,7 @@ class FriendlistsController < ApplicationController
       flash[:success] = "Mail sent successfully"
     redirect_to current_user
   else
-    flash[:error] = "Pls try again or send msg one by one"
+    flash[:error] = "you might be  already friends or pls try again after some time"
         redirect_to current_user
       end
   end

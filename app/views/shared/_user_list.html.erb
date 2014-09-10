@@ -1,0 +1,29 @@
+<div class="clear"></div>
+<div id="user_list">
+<% if !@users.blank? %>
+ <% @users.each do |user| %>
+<div>
+
+	<%= form_for (@friendlist)  do |f| %>
+  
+  <div class="search-field">
+    
+<div class="pull-left"><%= user.email %></div>
+<%= f.hidden_field  :your_email, :value =>@user.email %>
+<%= f.hidden_field  :your_name, :value =>@user.name %>
+<%= f.hidden_field  :friendid, :value =>user.id %>
+<%= f.hidden_field  :status, :value =>"0" %>
+<%= f.hidden_field  :contact_list, :value =>user.email %>
+  <%= f.submit "invite", class: "btn btn-small btn-primary pull-right" %>
+  </div>
+  <hr/>
+<% end %>
+
+
+</div>
+<% end %>
+
+<% else %>
+<% end %>
+
+</div>

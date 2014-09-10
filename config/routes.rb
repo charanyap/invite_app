@@ -1,12 +1,23 @@
 InviteApp::Application.routes.draw do
-  resources :users
+  resources :users do
+       
+    member do
+       get :friends
+       get :invite
+    end
+  end
+  resources :friendlists      
   resources :sessions, only: [:new, :create, :destroy]
+  resources :posts, only: [:create, :destroy]
   root  'users#home'
   match '/register',   to: 'users#register',   via: 'get'
   match '/signin',   to: 'sessions#create',   via: 'get'
   match '/show',   to: 'users#show',   :via => [:post , :get]
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/invite', to: 'users#invite',   :via => [:post , :get]
+  match '/friendlists/show', to: 'frienlists#show' , :via => [:post , :get]
+ 
+ # mathch '/search-form', to: 'users#show',   :via => [:post , :get]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

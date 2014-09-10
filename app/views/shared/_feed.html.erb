@@ -1,0 +1,9 @@
+<% if !@feed_items.blank? %>
+  <ol class="posts">
+    <%= render partial: 'shared/feed_item', collection: @feed_items %>
+  </ol>
+  <%= will_paginate @feed_items %>
+ <% else %>
+  <p>you and your friends didnt posted .</p><br />
+
+<% end %>

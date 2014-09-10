@@ -1,0 +1,11 @@
+<li id="<%= feed_item.id %>">
+  <span class="pull-left user-name label label-success">
+    <%= feed_item.user.name %> :
+  </span>
+  <span class="pull-left comment"><%= feed_item.comment %></span>
+  <div class="clear"></div>
+  <span class="pull-left time">
+    Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+  </span>
+</li>
+ <div class="clear"></div>

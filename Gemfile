@@ -6,6 +6,8 @@ gem 'rails', '4.0.8'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'simple_form', '~> 3.0.2'
 
 
 # Use sqlite3 as the database for Active Record

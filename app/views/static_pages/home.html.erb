@@ -1,0 +1,24 @@
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+     
+      <section>
+        <%= render 'shared/post_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to the Sample App</h1>
+
+    <h2>
+      This is the home page for the
+      
+    </h2>
+
+    <%= link_to "Sign up now!", signup_path,
+                                class: "btn btn-large btn-primary" %>
+  </div>
+
+ 
+<% end %>

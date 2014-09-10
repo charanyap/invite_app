@@ -14,4 +14,11 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
+$(function(){
+	//alert("came")
+$("#add-friend input").keyup( function() {
+	//alert("came");
+  $.get($("#add-friend").attr("action"),$("#add-friend").serialize(), null , "script");
+  return false;
+});
+});  

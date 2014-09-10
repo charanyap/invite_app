@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	#before_save { self.email = email.downcase }
   before_create :create_remember_token
+  has_many :posts, dependent: :destroy
+   has_many :friendlists
 
 	validates :name,  presence: true, length: { maximum: 50 }
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -16,11 +18,23 @@ class User < ActiveRecord::Base
   def User.digest(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
-
+  def feed
+    Post.from_users_followed_by(self)
+  end  
   private
 
     def create_remember_token
       self.remember_token = User.digest(User.new_remember_token)
     end
+
+  
+
+def self.search(search)
+  if search
+    where('email LIKE ?', "%#{search}%")
+  end
+end
+
+
 
 end

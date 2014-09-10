@@ -1,13 +1,55 @@
 <% provide(:title, 'show users') %>
 
-<div class="center hero-unit">
- 
- <%= @user.name %>, <%= @user.email %>
-  <h2><%= @user.name %></h2>        
- 
+<div class="center hero-unit padding-less">     
+
   <% if signed_in? %>
- <%= link_to "Send invitation", invite_path %> 
- <%= link_to "Sign out", signout_path, method: "delete" %>
+<%= link_to "Sign out",  signout_path, method: "delete" ,class: "btn btn-small btn-primary pull-right " %>
+<h2 class="font-blue-color"> Welcome <strong><%= @user.name %></strong></h2>   
+<h4>Search new friends and Compose new Post it will be visible to you and your friends. </h4>
+<div class="clear"></div>
+  <div class="row">
+    <aside class="span4 margin-less">
+     
+      
+      <section>
+        <%= form_tag @user, :method =>'get' , :id => "add-friend" , remote: "true" do  %>
+ <p>Search friends using email : </p> 
+ <div class="clear"></div>
+ <%= text_field_tag :search, params[:search], placeholder: "Search Users", :style => 'width: 250px' %>
+  <%= button_tag( :class => "btn btn-small btn-primary inline") do %>
+   <i class="icon-search icon-white"></i>
+<% end %>
+<% end %>
+<%= render 'shared/user_list' %> 
+      </section>
+    </aside>
+    <aside class="span8 margin-less border-left padding-less">
+    <section>
+        <%= render 'shared/post_form' %>
+      </section>
+    <% if @user.posts.any? %>
+      <h4>Total posts by you (<%= @user.posts.count %>)</h4>
+      <ol class="posts">
+        <%= render 'shared/feed' %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  
+    </aside>
+  </div>
+
+
+ 
+
+
+
+ <!--<%= link_to "search friends and Send invitation", invite_user_path(@user) %> -->
+
+ 
+ 
+
+ 
           <% end %>
+        </div>
 </div>
 

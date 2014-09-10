@@ -1,0 +1,12 @@
+<div class="center"><h2>You both beacme friends now you can share comments  </h2>
+<%= link_to "login", root_path %></div>
+
+
+<%= form_for (@friendlist)  do |f| %>
+  
+  <div class="field">
+    
+<%= f.hidden_field  :friendid %>
+<%= f.hidden_field  :status, :value =>"1" %>
+  </div>
+<% end %>

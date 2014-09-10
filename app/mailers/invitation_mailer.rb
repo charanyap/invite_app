@@ -1,10 +1,15 @@
 class InvitationMailer < ActionMailer::Base
   default from: "charanya140207@gmail.com"
 
-  def invitation_mail(email_id)
+  def invitation_mail(email_id, userid, friendid,my_email,my_name,friendlist_id)
   	@email_id=email_id
-  	 @url  = 'http://example.com/login'
-  	mail(:to => @email_id, :subject => "Invitation from from  wwww.somesite.com")
+  	@a=userid
+  	@b=friendid
+  	@friendname=my_name
+  	@friendemail=my_email
+    @id=friendlist_id
+  	 @url  = "http://localhost/friendlists/#{@id}?a=#{@a}&b=#{@b}"
+  	mail(:to => @email_id, :subject => "Invitation  from  wwww.somesite.com")
   	
   end
 end

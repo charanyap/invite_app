@@ -1,0 +1,12 @@
+<p>Successfully edited</p>
+
+
+<%= form_for (@friendlist)  do |f| %>
+  
+  <div class="field">
+    
+<%= f.hidden_field  :friendid %>
+<%= f.hidden_field  :status, :value =>"1" %>
+  
+  </div>
+<% end %>

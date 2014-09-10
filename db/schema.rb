@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827072707) do
+ActiveRecord::Schema.define(version: 20140908071557) do
+
+  create_table "friendlists", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friendid"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friendlists", ["user_id", "friendid"], name: "index_friendlists_on_user_id_and_friendid", unique: true
+
+  create_table "posts", force: true do |t|
+    t.string   "comment"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

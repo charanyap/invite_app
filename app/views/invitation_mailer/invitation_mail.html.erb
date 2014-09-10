@@ -6,12 +6,10 @@
   <body>
     <h1>Welcome to example.com, <%= @email_id %></h1>
     <p>
-      Your friend invited you to our site .pls follow this link
-      Link to join: <%= @url %>
+      Hi  Mr/Ms.<strong> <%= @friendname %></strong> wants to become friend with you in our site .<br />
+      Please click the link to become friend of <%= @friendname %> <%= link_to "click" , "friendlists/#{@id}/edit?a=#{@a}&b=#{@b}" %>
           </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
-    </p>
+   
     <p>Thanks for joining and have a great day!</p>
   </body>
 </html>

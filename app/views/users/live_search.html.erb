@@ -1,0 +1,8 @@
+<% if @results.empty? %>
+Query not found !
+
+<% else %>
+<% result.each do |User| %>
+<% User.email %> <p> send invitation</p>
+<% end %>
+<% end %>

@@ -1,12 +1,15 @@
-<p>Successfully edited</p>
+<% provide(:title, 'Friend Request-Accept Link') %>
+<div class="center hero-unit">   
+<p>Pls accept the request by cicking Accept link </p>
 
-
+<div class="clear"></div>
 <%= form_for (@friendlist)  do |f| %>
   
   <div class="field">
-    
-<%= f.hidden_field  :friendid %>
+<%= f.hidden_field  :user_id, :value => params[:a] %>  
+<%= f.hidden_field  :friendid , :value => params[:b] %>
 <%= f.hidden_field  :status, :value =>"1" %>
-  
+<%= f.submit "Accept", class: "btn btn-large btn-primary" %>
   </div>
 <% end %>
+</div>

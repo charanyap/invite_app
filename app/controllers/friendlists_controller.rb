@@ -29,8 +29,12 @@ def show
 
   def edit
    @friendlist=Friendlist.find(params[:id])
+  end
+  
+   def update
+   @friendlist=Friendlist.find(params[:id])
    @friendlist.status="1"
-   if @friendlist.save
+   if @friendlist.update_attributes(friendlist_update_params)
     flash[:success] = "You both bacame friends"
     redirect_to  @friendlist
   else
@@ -38,7 +42,6 @@ def show
         redirect_to  @friendlist
       end
   end
-
   
 
   def destroy
@@ -59,13 +62,15 @@ def show
   #   end
   # end
 
-  # private
+  private
 
     def friendlist_params
       if params[:friendlist]
       params.require(:friendlist).permit(:friendid, :status)
-    
-     
      end
+    end
+
+     def friendlist_update_params
+      params.require(:friendlist).permit(:friendid, :status , :user_id)
     end
 end

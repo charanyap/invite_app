@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       @friendlist = current_user.friendlists.build 
       if !params[:search].blank?
       @error_msg="came inside search"
-    @users = User.search(params[:search])
+    @users = User.search(params[:search],params[:id])
     respond_to do |format|
     format.js { render :layout=>false }     
   end

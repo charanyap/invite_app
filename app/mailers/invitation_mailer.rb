@@ -9,7 +9,7 @@ class InvitationMailer < ActionMailer::Base
   	@friendemail=my_email
     @id=friendlist_id
   	 @url  = "http://localhost/friendlists/#{@id}?a=#{@a}&b=#{@b}"
-  	mail(:to => @email_id, :subject => "Invitation  from  wwww.somesite.com")
+  	mail(to: => @email_id, subject: => "Invitation  from  wwww.somesite.com")
   	
   end
 end

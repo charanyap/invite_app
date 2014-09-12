@@ -4,10 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @email_id %></h1>
+    <h5>Welcome to <a href="https://invite-app.herokuapp.com/">My app</a>, <%= @email_id %></h5>
     <p>
       Hi  Mr/Ms.<strong> <%= @friendname %></strong> wants to become friend with you in our site .<br />
-      Please click the link to become friend of <%= @friendname %> <%= link_to "click" , "friendlists/#{@id}/edit?a=#{@a}&b=#{@b}" %>
+      Please click the link to become friend of <%= @friendname %> <%= link_to "click here to become friend" , "https://invite-app.herokuapp.com/friendlists/#{@id}/edit?a=#{@a}&b=#{@b}" %>
           </p>
    
     <p>Thanks for joining and have a great day!</p>

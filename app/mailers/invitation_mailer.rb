@@ -8,7 +8,7 @@ class InvitationMailer < ActionMailer::Base
   	@friendname=my_name
   	@friendemail=my_email
     @id=friendlist_id
-  	 @url  = "http://localhost/friendlists/#{@id}/edit?a=#{@a}&b=#{@b}"
+  	 @url  = "https://invite-app.herokuapp.com/friendlists/#{@id}/edit?a=#{@a}&b=#{@b}"
   	mail(:to => @email_id , :subject => "Invitation  from  wwww.somesite.com" )
   	
   end

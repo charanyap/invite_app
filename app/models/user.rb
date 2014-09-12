@@ -21,6 +21,13 @@ class User < ActiveRecord::Base
   def feed
     Post.from_users_followed_by(self)
   end  
+   
+  def search_email(id)
+    if id
+      where('id',id).first.email
+    end
+  end
+
   private
 
     def create_remember_token

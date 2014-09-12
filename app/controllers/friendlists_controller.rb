@@ -1,5 +1,5 @@
 class FriendlistsController < ApplicationController
- 
+ include ApplicationHelper
  def index
   @friendlist = Friendlist.where(user_id: params[:a] , friendid:params[:b]).find(params[:id])
  end
@@ -8,12 +8,12 @@ class FriendlistsController < ApplicationController
     
    @friendlist = current_user.friendlists.build(friendlist_params)
     if @friendlist.save
-      friendlist_id=@friendlist.id
-     @email_id=params[:contact_list]
-     @userid=params[:user_id]
-     @friendid=params[:friendid]
-     @my_email=params[:your_email]
-     @my_name=params[:your_name]
+     friendlist_id=@friendlist.id
+     @email_id=user_email(@friendlist.friendid)
+     @userid=@friendlist.user_id
+     @friendid=@friendlist.friendid
+     @my_email=current_user.email
+     @my_name=current_user.name
      InvitationMailer.invitation_mail(@email_id,@userid,@friendid,@my_email,@my_name,friendlist_id).deliver 
       flash[:success] = "Mail sent successfully"
     redirect_to current_user
@@ -49,19 +49,7 @@ def show
     current_user.unfollow!(@user)
     redirect_to current_user
   end
-  # def create
-  #   @friendlists = Friendlist.new(params[:friendlists ])
-  #   if @friendlists.save
-  #     # @email_id=params[:contact_list]
-  #     #  InvitationMailer.invitation_mail(@email_id).deliver  
-  #     flash[:success] = "Mail sent successfully"
-  #     redirect_to invite_path
-  #   else
-  #      flash[:error] = "Pls try again or send msg one by one"
-  #      redirect_to invite_path
-  #   end
-  # end
-
+ 
   private
 
     def friendlist_params
@@ -71,6 +59,6 @@ def show
     end
 
      def friendlist_update_params
-      params.require(:friendlist).permit(:friendid, :status , :user_id)
+      params.require(:friendlist).permit(:friendid, :status , :user_id , :contact_list , :your_email , :your_name)
     end
 end

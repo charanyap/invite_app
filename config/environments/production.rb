@@ -86,9 +86,13 @@ config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default :charset => "utf-8"
 config.action_mailer.smtp_settings = {
-  :address => "127.0.0.1",
-  :port    => "25",
-  :domain  => 'https://invite-app.herokuapp.com'
+  address: "smtp.sendgrid.net",
+  port: "587",
+  domain: "heroku.com",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV["SENDGRID_USERNAME"],
+  password: ENV["SENDGRID_PASSWORD"]
 }
 
 end

@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
                          WHERE friendid = :user_id and status = 1 "
     frinds_friendid = "SELECT friendid  FROM friendlists
                          WHERE user_id = :user_id and status = 1 "
-    where("user_id IN (#{frinds_user_ids}) OR user_id = :user_id OR user_id IN (#{frinds_friendid})",
+    where("user_id IN (#{frinds_user_ids}) OR user_id = :user_id OR user_id = (#{frinds_friendid})",
           user_id: user.id)
   end
 
